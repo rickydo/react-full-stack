@@ -1,0 +1,24 @@
+{
+  "name": "expressjs-intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickydo/expressjs-intro.git"
+  },
+  "keywords": [],
+  "author": "Ricky Do",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rickydo/expressjs-intro/issues"
+  },
+  "homepage": "https://github.com/rickydo/expressjs-intro#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
