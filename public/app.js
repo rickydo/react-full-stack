@@ -65,25 +65,30 @@ var Email = React.createClass({
 
 var Pssword = React.createClass({
   getInitialState: function(){
-    return: {
+    return {
       password1: '',
       password2: ''}
   },
   onChange: function(e){
     this.setState({
-      e.target.name
-      password1
+      [e.target.name]: e.target.value
+
     })
   },
   render:function(){
+    var msg = null;
     var ch = [<input type="password" name="password1" required="required" placeholder="Password"
               key="password" onChange={this.onChange}/>];
     if(this.props.twice){
       ch[1] = [<input type="password" name="password2" required="required" placeholder="Repeat Password"
                 key="password2" onChange={this.onChange}/>]
     }
+
+    if(this.state.password2.length) && this.state.password1 != this.state.password2){
+      msg = <div className="error-message">Both passwords must be the same!</div>
+    }
     return
-      <div>{ch}</div>
+      <div>{ch}{msg}</div>
   }
 })
 
