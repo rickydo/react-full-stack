@@ -1,13 +1,17 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+// var React = require('react');
+// var ReactDOM = require('react-dom');
+// var PropTypes = require('prop-types');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
-var Layout = React.createClass({
+class Layout extends React.Component {
   // expect to get a child
   propTypes: {
-    children: React.PropTypes.element.isRequired
-  },
+    children: PropTypes.string.isRequired
+  };
 
-  render: function(){
+  render(){
     return(
       <div className="overlay">
         <div className="box">
@@ -21,20 +25,16 @@ var Layout = React.createClass({
       </div>
     )
   }
-})
+};
 
-var Login = React.createClass({
+class Login extends React.Component {
   getInitialState: function(){
     return {
       remember: true
     }
-  },
-  // onChangeRemember: function(e){
-  //
-  // }
+  }
 
-
-  render: function(){
+  render(){
     return
     <form action="/u/login" method="post" accept-charset="utf-8">
         <Email />
@@ -51,19 +51,19 @@ var Login = React.createClass({
         <button type="submit">Login</button>
     </form>
   }
-})
+};
 
 
-var Email = React.createClass({
-  render:function(){
+class Email extends React.Component {
+  render(){
     return
     <input type="email" name="email" data-info="An active email account is needed to gain access."
       placeholder="Your email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
       required title="You need to have a working email to gain access." required="required" id="email"/>
   }
-})
+};
 
-var Pssword = React.createClass({
+class Psswd extends React.Component {
   getInitialState: function(){
     return {
       password1: '',
@@ -75,7 +75,7 @@ var Pssword = React.createClass({
 
     })
   },
-  render:function(){
+  render(){
     var msg = null;
     var ch = [<input type="password" name="password1" required="required" placeholder="Password"
               key="password" onChange={this.onChange}/>];
@@ -90,10 +90,10 @@ var Pssword = React.createClass({
     return
       <div>{ch}{msg}</div>
   }
-})
+};
 
-var Register = React.createClass({
-  render:function(){
+class Register extends React.Component {
+  render(){
     return
     <form method="post" accept charset="utf-8" action="/u/register">
       <Email />
@@ -102,12 +102,11 @@ var Register = React.createClass({
         <button type="submit">Submit</button>
     </form>;
   }
-});
+};
 
 
 ReactDOM.render(
-  <Layout title="Login">
+  (<Layout title="Login">
     <Login />
-    {/* <Register/> */}
-  </Layout>
-)
+  </Layout>), document.getElementById('app')
+);

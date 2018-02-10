@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack -d && node index"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "webpack": "^3.10.0"

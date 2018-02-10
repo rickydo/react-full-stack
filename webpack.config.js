@@ -1,9 +1,10 @@
 var webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: './private/react/app.jsx',
   output: {
-    path: __dirname + './public/',
+    path: path.join(__dirname, './public'),
     filename: 'app.js'
   },
   module:{
