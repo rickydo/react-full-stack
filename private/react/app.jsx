@@ -28,7 +28,7 @@ class Layout extends React.Component {
 };
 
 class Login extends React.Component {
-  getInitialState: function(){
+  getInitialState(): {
     return {
       remember: true
     }
@@ -64,12 +64,12 @@ class Email extends React.Component {
 };
 
 class Psswd extends React.Component {
-  getInitialState: function(){
+  getInitialState(){
     return {
       password1: '',
       password2: ''}
   },
-  onChange: function(e){
+  onChange(e){
     this.setState({
       [e.target.name]: e.target.value
 
