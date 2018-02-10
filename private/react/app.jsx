@@ -73,6 +73,8 @@ class Pssword extends React.Component {
       password1: '',
       password2: ''
     }
+
+    this.onChange = this.onChange.bind(this);
   }
 
   onChange(e){
@@ -86,10 +88,10 @@ class Pssword extends React.Component {
   render(){
     var msg = null;
     var ch = [<input type="password" name="password1" required="required" placeholder="Password"
-              key="password" onChange={this.onChange}/>];
+              key="password" onChange={this.onChange} />];
     if(this.props.twice){
       ch[1] = [<input type="password" name="password2" required="required" placeholder="Repeat Password"
-                key="password2" onChange={this.onChange}/>]
+                key="password2" onChange={this.onChange} />]
     }
 
     if(this.state.password2.length && this.state.password1 != this.state.password2){
@@ -99,14 +101,15 @@ class Pssword extends React.Component {
       <div>{ch}{msg}</div>
     )
   }
+
 };
 
 class Register extends React.Component {
   render(){
     return(
-      <form method="post" accept charset="utf-8" action="/u/register">
+      <form method="post" acceptCharset="utf-8" action="/u/register">
         <Email />
-        <Password twice="1"/>
+        <Pssword twice="1"/>
         <span className="col-p100 info"></span>
         <button type="submit">Submit</button>
       </form>
