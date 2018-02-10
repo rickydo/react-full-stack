@@ -9,7 +9,7 @@ var Layout = React.createClass({
 
   render: function(){
     return(
-      <div className="overlay"
+      <div className="overlay">
         <div className="box">
           <h2>{this.props.title}</h2>
           {this.props.children}
@@ -26,12 +26,12 @@ var Layout = React.createClass({
 var Login = React.createClass({
   getInitialState: function(){
     return {
-      remember: true;
+      remember: true
     }
   },
-  onChangeRemember: function(e){
-
-  }
+  // onChangeRemember: function(e){
+  //
+  // }
 
 
   render: function(){
@@ -84,7 +84,7 @@ var Pssword = React.createClass({
                 key="password2" onChange={this.onChange}/>]
     }
 
-    if(this.state.password2.length) && this.state.password1 != this.state.password2){
+    if(this.state.password2.length && this.state.password1 != this.state.password2){
       msg = <div className="error-message">Both passwords must be the same!</div>
     }
     return
@@ -98,7 +98,7 @@ var Register = React.createClass({
     <form method="post" accept charset="utf-8" action="/u/register">
       <Email />
       <Password twice="1"/>
-        <span className="col-p100 info"</span>
+        <span className="col-p100 info"></span>
         <button type="submit">Submit</button>
     </form>;
   }

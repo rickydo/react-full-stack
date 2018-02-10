@@ -3,7 +3,7 @@ var webpack = require('webpack');
 module.exports = {
   entry: './private/react/app.jsx',
   output: {
-    path: './public/',
+    path: __dirname + './public/',
     filename: 'app.js'
   },
   module:{
