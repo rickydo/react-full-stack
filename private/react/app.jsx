@@ -28,53 +28,61 @@ class Layout extends React.Component {
 };
 
 class Login extends React.Component {
-  getInitialState(): {
-    return {
+  constructor(props){
+    super(props);
+    this.state = {
       remember: true
     }
   }
 
   render(){
-    return
-    <form action="/u/login" method="post" accept-charset="utf-8">
-        <Email />
-        <Pssword />
-          <label htmlFor="remember-me">
-            <input type="checkbox" name="remember_me" value="1" checked="checked"
-              id="remember-me" defaultChecked/>
-              Remember Me
-          </label>
+    return(
+      <form action="/u/login" method="post" acceptCharset="utf-8">
+      <Email />
+      <Pssword />
+      <label htmlFor="remember-me">
+        <input type="checkbox" name="remember_me" value="1"
+          id="remember-me" defaultChecked/>
+          Remember Me
+        </label>
         <p>
           <a href="register.html" className='inlink'>Register</a> |
           <a href="#request-reset-password" className="inlink"> Reset Password</a>
         </p>
         <button type="submit">Login</button>
-    </form>
+      </form>
+    )
   }
 };
 
 
 class Email extends React.Component {
   render(){
-    return
-    <input type="email" name="email" data-info="An active email account is needed to gain access."
-      placeholder="Your email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-      required title="You need to have a working email to gain access." required="required" id="email"/>
+    return(
+      <input type="email" name="email" data-info="An active email account is needed to gain access."
+        placeholder="Your email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        required title="You need to have a working email to gain access." required="required" id="email"/>
+    )
   }
 };
 
-class Psswd extends React.Component {
-  getInitialState(){
-    return {
+class Pssword extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
       password1: '',
-      password2: ''}
-  },
+      password2: ''
+    }
+  }
+
   onChange(e){
     this.setState({
       [e.target.name]: e.target.value
 
     })
-  },
+  }
+
+
   render(){
     var msg = null;
     var ch = [<input type="password" name="password1" required="required" placeholder="Password"
@@ -87,20 +95,22 @@ class Psswd extends React.Component {
     if(this.state.password2.length && this.state.password1 != this.state.password2){
       msg = <div className="error-message">Both passwords must be the same!</div>
     }
-    return
+    return(
       <div>{ch}{msg}</div>
+    )
   }
 };
 
 class Register extends React.Component {
   render(){
-    return
-    <form method="post" accept charset="utf-8" action="/u/register">
-      <Email />
-      <Password twice="1"/>
+    return(
+      <form method="post" accept charset="utf-8" action="/u/register">
+        <Email />
+        <Password twice="1"/>
         <span className="col-p100 info"></span>
         <button type="submit">Submit</button>
-    </form>;
+      </form>
+    )
   }
 };
 
